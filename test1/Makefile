@@ -1,7 +1,12 @@
 
 CFLAGS := -I ./include
+obj = main.o print1/print1.o
 
-main: main.o print1/print1.o
-
-	gcc main.o print1/print1.o  -o main
+main: $(obj)
+	
+	gcc $^ -o $@
+	mv $(obj) out
+	
+clean:
+	sudo rm -rf $(obj) main
 	
